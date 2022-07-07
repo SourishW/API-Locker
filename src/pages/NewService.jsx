@@ -6,7 +6,7 @@ import Method from "./NewServiceComponents/Method";
 import LicensingInfo from "./NewServiceComponents/LicensingInfo";
 
 const NewService = () => {
-  const [firstInfo, setFirstInfo] = useState([]);
+  const [firstInfo, setFirstInfo] = useState({});
   const [pages, setPages] = useState([]);
   const [licensingInfo, setLicensingInfo] = useState({});
   const [needEndpoints, setNeedEndpoints] = useState(true);

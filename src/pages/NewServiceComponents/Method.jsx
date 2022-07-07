@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./formformatting.scss";
 
 const Method = (props) => {
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState(
+    props.methodInfo ? props.methodInfo : {}
+  );
 
   const updateAttribute = (object, name, value) => {
     const copyJect = object;

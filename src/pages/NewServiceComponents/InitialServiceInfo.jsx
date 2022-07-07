@@ -28,14 +28,22 @@ const InitialServiceInfo = (props) => {
       const pages = new Array(parseInt(value));
 
       for (let i = 0; i < value; i++) {
-        pages[i] = 1;
+        pages[i] = i;
       }
       props.setPages(pages);
       let newInfo = {};
       for (let i = 0; i < value; i++) {
         newInfo[i] = {};
       }
-      props.setLicensingInfo(newInfo);
+      props.setLicensingInfo((prev) =>
+        Object.keys(prev)
+          .filter((key) => key < value)
+          .reduce((obj, key) => {
+            return Object.assign(obj, {
+              [key]: prev[key],
+            });
+          }, {})
+      );
     }
   };
 

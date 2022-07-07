@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./formformatting.scss";
 
 const LicensingInfo = (props) => {
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState(
+    props.licensingInfo ? props.licensingInfo : {}
+  );
 
   const updateAttribute = (object, name, value) => {
     let newObject = object;
