@@ -1,0 +1,42 @@
+body {
+  // background-image: linear-gradient(rgb(126, 42, 211), rgb(91, 155, 235));
+  // background-image: linear-gradient(rgb(103, 117, 241), rgb(113, 183, 241));
+  background-image: linear-gradient(rgb(103, 153, 240), rgb(161, 213, 246));
+}
+
+.newservice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  &__pagetraversal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    &__button {
+      background-color: lightblue;
+      margin: 20px;
+
+      width: 170px;
+      height: 50px;
+      font-size: 1.25rem;
+      font-weight: 500;
+      border-width: 0ch;
+      border-radius: 20px;
+      padding: 10px;
+      transition: all 0.4s ease;
+
+      -webkit-transition: all 0.4s ease;
+
+      margin-bottom: 20px;
+    }
+    &__button:hover {
+      transition: all 0.4s ease;
+      -webkit-transition: all 0.4s ease;
+      background-color: rgb(82, 155, 250);
+      color: white;
+    }
+  }
+}

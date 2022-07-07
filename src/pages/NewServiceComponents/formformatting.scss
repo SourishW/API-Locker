@@ -1,0 +1,75 @@
+.initialServiceInfo,
+.licensingInfo,
+.needEndpoints,
+.method {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: white;
+
+  margin: 80px;
+  margin-bottom: 0px;
+  min-width: 50%;
+
+  &__form {
+    // background: rgb(81, 16, 113);
+    // background-image: linear-gradient(rgb(135, 42, 211), rgb(91, 155, 235));
+    // background-image: linear-gradient(rgb(4, 15, 86), rgb(229, 174, 206));
+    background-image: linear-gradient(rgb(69, 126, 225), rgb(111, 175, 214));
+    background-image: linear-gradient(lightblue grey);
+    padding: 20px;
+    padding-bottom: 70px;
+    border-radius: 40px;
+    &__checkbox {
+      font-size: 1.5rem;
+
+      &__input {
+        width: 30px;
+        height: 20px;
+        border-radius: 20px;
+        margin-top: 40px;
+        margin-left: 50px;
+      }
+    }
+    &__item {
+      display: block;
+      padding-top: 30px;
+      margin-left: 50px;
+      &__label {
+        display: block;
+      }
+
+      input,
+      textarea,
+      &__input {
+        padding: 10px;
+        border-radius: 10px;
+        font-size: 1.25rem;
+        border-width: 0ch;
+        width: calc(100% - 60px);
+
+        background-color: rgb(211, 226, 231);
+      }
+      textarea {
+        height: 160px;
+      }
+      // &__button {
+      //   // background-color: rgb(211, 226, 231);
+      //   background-color: lightblue;
+
+      //   width: 120px;
+      //   font-size: 1.25rem;
+      //   margin-top: 50px;
+      //   font-weight: 500;
+      //   border-width: 0ch;
+      //   border-radius: 20px;
+      //   padding: 10px;
+      // }
+
+      // &__button:hover {
+      //   transition: all 0.4s ease;
+      //   -webkit-transition: all 0.4s ease;
+      //   background-color: lightgray;
+      // }
+    }
+  }
+}
