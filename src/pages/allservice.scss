@@ -1,0 +1,42 @@
+.allservices {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  display: flex;
+
+  h1 {
+    font-size: 1.25rem;
+    display: block;
+  }
+  &__group {
+    margin: 100px;
+    margin-top: 0px;
+
+    max-width: 70%;
+    min-width: 60%;
+    background-image: linear-gradient(rgb(73, 123, 210), rgb(121, 173, 206));
+
+    padding: 50px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+
+    &__collective {
+      display: block;
+      justify-content: center;
+      flex-wrap: wrap;
+      &__item {
+        background-color: orange;
+        // background-image: linear-gradient(
+        //   rgb(255, 255, 255),
+        //   rgb(205, 216, 235)
+        // );
+        width: 90%;
+
+        margin: 20px;
+      }
+    }
+  }
+}

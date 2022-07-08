@@ -3,6 +3,7 @@ import "boxicons/css/boxicons.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./components/layout/AppLayout";
 import Blank from "./pages/Blank";
+import AllServices from "./pages/AllServices";
 import NewService from "./pages/NewService";
 import ChangeService from "./pages/ChangeService";
 
@@ -12,7 +13,37 @@ function App() {
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Blank />} />
-          <Route path="/started" element={<Blank />} />
+          <Route
+            path="/allservices"
+            element={
+              <AllServices
+                groups={{
+                  Youtube: {
+                    videoSearch: {
+                      name: "Video Search",
+                      description: "This is a short description of the product",
+                      serviceType: "Database",
+                      serviceLink: "google.com",
+                    },
+                    commentRank: {
+                      name: "Comment Search",
+                      description:
+                        "This is a short description of the Comment Search product. This is a short description of the Comment Search product. This is a short description of the Comment Search product. This is a short description of the Comment Search product",
+                      serviceType: "google.com",
+                    },
+                  },
+                  GoogleSearch: {
+                    articleSearch: {
+                      name: "Google Search",
+                      description:
+                        "This is a short description of the Google Search product. This is a short description of the Google Search product.",
+                      serviceType: "google.com",
+                    },
+                  },
+                }}
+              />
+            }
+          />
           <Route path="/calendar" element={<Blank />} />
           <Route path="/user" element={<Blank />} />
           <Route
