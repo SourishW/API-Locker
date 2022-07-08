@@ -11,23 +11,66 @@
     display: block;
   }
   &__group {
-    margin: 100px;
+    margin: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
     margin-top: 0px;
 
-    max-width: 70%;
-    min-width: 60%;
     background-image: linear-gradient(rgb(73, 123, 210), rgb(121, 173, 206));
-
+    // background-color: white;
     padding: 50px;
+    box-shadow: 5px 10px #7899df;
+
     border-radius: 20px;
     color: white;
     text-align: center;
+    h1 {
+      background-color: white;
+      color: grey;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      font-size: 1.5rem;
+    }
 
     &__collective {
       display: block;
       justify-content: center;
       flex-wrap: wrap;
+
+      &__table {
+        td,
+        th {
+          padding: 20px;
+
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        th {
+          font-size: 1.25rem;
+        }
+        td,
+        a {
+          font-size: 1rem;
+        }
+        button {
+          transition: 1s;
+          padding: 10px;
+          border-radius: 10px;
+          background-color: orange;
+          outline-width: 0px;
+          border-width: 0px;
+          color: white;
+          box-shadow: none;
+        }
+        button:hover {
+          background-color: white;
+          color: black;
+        }
+      }
       &__item {
+        display: block;
+        text-align: left;
         background-color: orange;
         // background-image: linear-gradient(
         //   rgb(255, 255, 255),

@@ -13,7 +13,6 @@ export default function AllServices(props) {
         {Object.keys(props.groups).map((item, index) => (
           <div className="allservices__group">
             <h1>{item} Services</h1>
-            <br />
             <AllServiceGroup group={props.groups[item]} />
           </div>
         ))}

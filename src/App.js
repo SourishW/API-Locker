@@ -22,14 +22,19 @@ function App() {
                     videoSearch: {
                       name: "Video Search",
                       description: "This is a short description of the product",
-                      serviceType: "Database",
-                      serviceLink: "google.com",
+                      type: "Database",
+                      link: "google.com",
+                      cycle: "V1",
+                      state: "Production",
                     },
                     commentRank: {
                       name: "Comment Search",
                       description:
                         "This is a short description of the Comment Search product. This is a short description of the Comment Search product. This is a short description of the Comment Search product. This is a short description of the Comment Search product",
-                      serviceType: "google.com",
+                      type: "Database",
+                      link: "google.com",
+                      cycle: "V3",
+                      state: "Build",
                     },
                   },
                   GoogleSearch: {
@@ -37,7 +42,10 @@ function App() {
                       name: "Google Search",
                       description:
                         "This is a short description of the Google Search product. This is a short description of the Google Search product.",
-                      serviceType: "google.com",
+                      type: "Internal API",
+                      link: "google.com",
+                      cycle: "V2",
+                      state: "Test",
                     },
                   },
                 }}
