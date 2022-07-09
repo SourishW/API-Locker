@@ -1,6 +1,7 @@
 .manageservice {
   margin: 40px;
-  &__primaryinfo {
+  &__primaryinfo,
+  &__previousversions {
     &__title {
       margin: 60px;
       h1 span {
@@ -16,15 +17,114 @@
       }
       text-align: center;
     }
-    &__description {
+  }
+
+  &__primaryinfo {
+    &__description,
+    &__serviceblob {
+      justify-content: space-evenly;
       padding: 20px;
-      background-image: linear-gradient(rgb(73, 123, 210), rgb(121, 173, 206));
-      color: white;
 
       display: flex;
       &__item {
         margin: 20px;
       }
+    }
+    &__description {
+      background-image: linear-gradient(rgb(73, 123, 210), rgb(121, 173, 206));
+      color: white;
+    }
+    &__serviceblob {
+      background-color: orange;
+      color: white;
+    }
+  }
+  &__managementoptions {
+    background-image: linear-gradient(rgb(73, 123, 210), rgb(121, 173, 206));
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    background-color: white;
+    &__item {
+      margin: 20px;
+      text-align: center;
+      h2 {
+        margin-bottom: 10px;
+      }
+      select {
+        border-radius: 20px;
+        font-size: larger;
+        color: white;
+        text-align: center;
+        width: 200px;
+        background-color: orange;
+
+        height: 50px;
+      }
+      a {
+        padding: 20px;
+        border-radius: 20px;
+        font-size: larger;
+        color: white;
+        text-align: center;
+
+        background-color: orange;
+      }
+    }
+  }
+
+  &__previousversions {
+    text-align: center;
+    background-image: linear-gradient(rgb(73, 123, 210), rgb(121, 173, 206));
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &__table {
+      td,
+      th {
+        padding: 20px;
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      th {
+        font-size: 1.25rem;
+      }
+      td,
+      a {
+        font-size: 1rem;
+      }
+      a {
+        transition: 1s;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: orange;
+        outline-width: 0px;
+        border-width: 0px;
+        color: white;
+        box-shadow: none;
+      }
+      a:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+    &__item {
+      display: block;
+      text-align: left;
+      background-color: orange;
+      // background-image: linear-gradient(
+      //   rgb(255, 255, 255),
+      //   rgb(205, 216, 235)
+      // );
+      width: 90%;
+
+      margin: 20px;
     }
   }
 }
