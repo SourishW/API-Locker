@@ -23,11 +23,12 @@
       font-size: 1.5rem;
 
       &__input {
-        width: 30px;
+        width: 20px;
+        margin-right: 10px;
+        margin-left: 10px;
         height: 20px;
         border-radius: 20px;
         margin-top: 40px;
-        margin-left: 50px;
       }
     }
     &__item {
@@ -71,5 +72,13 @@
       //   background-color: lightgray;
       // }
     }
+  }
+}
+
+.needEndpoints {
+  margin: 20px;
+  &__form__check__box {
+    margin: 0;
+    padding: 0px;
   }
 }

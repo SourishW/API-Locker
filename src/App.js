@@ -5,6 +5,7 @@ import AppLayout from "./components/layout/AppLayout";
 import Blank from "./pages/Blank";
 import AllServices from "./pages/AllServices";
 import NewService from "./pages/NewService";
+import ManageService from "./pages/ManageService";
 import ChangeService from "./pages/ChangeService";
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
               />
             }
           />
-          <Route path="/calendar" element={<Blank />} />
+          <Route path="/ManageService" element={<ManageService />} />
           <Route path="/user" element={<Blank />} />
           <Route
             path="/service"
