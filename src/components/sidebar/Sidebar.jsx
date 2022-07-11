@@ -15,12 +15,12 @@ const sidebarNavItems = [
     to: "/allservices",
     section: "allservices",
   },
-  {
-    display: "Calendar",
-    icon: <i className="bx bx-calendar"></i>,
-    to: "/calendar",
-    section: "calendar",
-  },
+  // {
+  //   display: "Calendar",
+  //   icon: <i className="bx bx-calendar"></i>,
+  //   to: "/calendar",
+  //   section: "calendar",
+  // },
   {
     display: "User",
     icon: <i className="bx bx-user"></i>,

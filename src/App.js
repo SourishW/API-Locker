@@ -19,14 +19,17 @@ import { loginRequest } from "./authConfig";
 import Button from "react-bootstrap/Button";
 
 import { PageLayout } from "./components/PageLayout";
+import { ProfileData } from "./components/ProfileData";
+import { callMsGraph, ensureServiceLockerDirectory } from "./graph";
 
 function ProfileContent() {
-  const { instance, accounts, inProgress } = useMsal();
-  const [accessToken, setAccessToken] = useState(null);
+  const { instance, accounts } = useMsal();
+  const [graphData, setGraphData] = useState(null);
+  const [driveData, setDriveData] = useState(null);
 
   const name = accounts[0] && accounts[0].name;
 
-  function RequestAccessToken() {
+  function RequestProfileData() {
     const request = {
       ...loginRequest,
       account: accounts[0],
@@ -36,11 +39,30 @@ function ProfileContent() {
     instance
       .acquireTokenSilent(request)
       .then((response) => {
-        setAccessToken(response.accessToken);
+        callMsGraph(response.accessToken).then((response) =>
+          setGraphData(response)
+        );
       })
       .catch((e) => {
         instance.acquireTokenPopup(request).then((response) => {
-          setAccessToken(response.accessToken);
+          callMsGraph(response.accessToken).then((response) =>
+            setGraphData(response)
+          );
+        });
+      });
+
+    instance
+      .acquireTokenSilent(request)
+      .then((response) => {
+        ensureServiceLockerDirectory(response.accessToken).then((response) =>
+          setDriveData(response)
+        );
+      })
+      .catch((e) => {
+        instance.acquireTokenPopup(request).then((response) => {
+          ensureServiceLockerDirectory(response.accessToken).then((response) =>
+            ensureServiceLockerDirectory(response)
+          );
         });
       });
   }
@@ -48,11 +70,15 @@ function ProfileContent() {
   return (
     <>
       <h5 className="card-title">Welcome {name}</h5>
-      {accessToken ? (
-        <p>Access Token Acquired! {JSON.stringify(accessToken, "", 2)}</p>
+      {graphData ? (
+        <div>
+          <ProfileData graphData={graphData} />
+          {JSON.stringify(driveData, "", 2)}
+          {JSON.stringify(graphData, "", 2)}
+        </div>
       ) : (
-        <Button variant="secondary" onClick={RequestAccessToken}>
-          Request Access Token
+        <Button variant="secondary" onClick={RequestProfileData}>
+          Request Profile Information
         </Button>
       )}
     </>
