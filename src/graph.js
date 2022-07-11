@@ -50,3 +50,5 @@ export async function ensureServiceLockerDirectory(accessToken) {
     .then((response) => response.json())
     .catch((error) => console.log(error));
 }
+
+export async function uploadServiceInfoToDrive(accessToken, dataToSave) {}

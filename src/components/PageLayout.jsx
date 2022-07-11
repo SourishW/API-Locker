@@ -11,20 +11,19 @@ export const PageLayout = (props) => {
   const isAuthenticated = useIsAuthenticated();
 
   return (
-    <div style={{ paddingLeft: "320px" }}>
-      <Navbar bg="primary" variant="dark">
-        <a className="navbar-brand" href="/">
-          MSAL React Tutorial
-        </a>
+    <div style={{ paddingLeft: "210px" }}>
+      <Navbar
+        bg="primary"
+        variant="dark"
+        style={{
+          paddingLeft: "40px",
+          paddingTop: "25px",
+          paddingBottom: "25px",
+        }}
+      >
         {isAuthenticated ? <SignOutButton /> : <SignInButton />}
       </Navbar>
-      <h5>
-        <center>
-          Welcome to the Microsoft Authentication Library For React Tutorial
-        </center>
-      </h5>
-      <br />
-      <br />
+
       {props.children}
     </div>
   );

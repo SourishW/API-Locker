@@ -28,7 +28,7 @@ const sidebarNavItems = [
     section: "user",
   },
   {
-    display: "New Service",
+    display: "New Policy",
     icon: <i className="bx bx-receipt"></i>,
     to: "/service",
     section: "service",
@@ -62,7 +62,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <div className="sidebar__logo">Resource Handler</div>
+      <div className="sidebar__logo">Resource Locker</div>
       <div ref={sidebarRef} className="sidebar__menu">
         <div
           ref={indicatorRef}

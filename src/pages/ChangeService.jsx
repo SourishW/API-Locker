@@ -4,9 +4,13 @@ import InitialServiceInfo from "./NewServiceComponents/InitialServiceInfo";
 import NeedEndpoints from "./NewServiceComponents/NeedEndpoints";
 import Method from "./NewServiceComponents/Method";
 import LicensingInfo from "./NewServiceComponents/LicensingInfo";
+import { useMsal } from "@azure/msal-react";
+import { loginRequest } from "../authConfig";
+import { uploadServiceInfoToDrive } from "../graph";
 
 // props should include existing old license
 const ChangeService = (props) => {
+  const { instance, accounts } = useMsal();
   const [firstInfo, setFirstInfo] = useState(props.firstInfo);
   const [pages, setPages] = useState(Object.keys(props.licensingInfo));
   const [licensingInfo, setLicensingInfo] = useState(props.licensingInfo);
@@ -24,6 +28,34 @@ const ChangeService = (props) => {
   });
 
   const [methodInfo, setMethodInfo] = useState(props.methodInfo);
+
+  const uploadDataToDrive = () => {
+    const request = {
+      ...loginRequest,
+      account: accounts[0],
+    };
+
+    const dataToSave = {
+      primaryInformation: firstInfo,
+      licensingInformation: licensingInfo,
+      apiInfo: methodInfo,
+    };
+
+    instance
+      .acquireTokenSilent(request)
+      .then((response) => {
+        uploadServiceInfoToDrive(response.accessToken, dataToSave).then(
+          (response) => console.log(response)
+        );
+      })
+      .catch((e) => {
+        instance.acquireTokenPopup(request).then((response) => {
+          uploadServiceInfoToDrive(response.accessToken, dataToSave).then(
+            (response) => console.log(response)
+          );
+        });
+      });
+  };
 
   return (
     <div>
@@ -59,7 +91,12 @@ const ChangeService = (props) => {
         )}
       </div>
       <div className="newservice__pagetraversal">
-        <button className="newservice__pagetraversal__button">Submit</button>
+        <button
+          className="newservice__pagetraversal__button"
+          onClick={uploadDataToDrive}
+        >
+          Submit
+        </button>
       </div>
 
       {JSON.stringify(firstInfo, "", 2)}

@@ -16,6 +16,7 @@ export const SignOutButton = () => {
 
   return (
     <Button
+      style={{ backgroundColor: "white", color: "black" }}
       variant="secondary"
       className="ml-auto"
       onClick={() => handleLogout(instance)}
