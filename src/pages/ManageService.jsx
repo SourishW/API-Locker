@@ -1,4 +1,6 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./manageservice.scss";
 
 const previousVersions = {
@@ -25,7 +27,7 @@ export default function ManageService(props) {
       <div className="manageservice__primaryinfo">
         <div className="manageservice__primaryinfo__title">
           <h1>
-            <span>Manage {"Google Service"}</span>
+            <span>Manage Video Search</span>
           </h1>
         </div>
 

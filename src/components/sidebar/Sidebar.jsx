@@ -6,14 +6,14 @@ const sidebarNavItems = [
   {
     display: "Dashboard",
     icon: <i className="bx bx-home"></i>,
-    to: "/",
-    section: "",
-  },
-  {
-    display: "Services",
-    icon: <i className="bx bx-star"></i>,
     to: "/allservices",
     section: "allservices",
+  },
+  {
+    display: "Manage",
+    icon: <i className="bx bx-star"></i>,
+    to: "/manageservice",
+    section: "manageservice",
   },
   // {
   //   display: "Calendar",

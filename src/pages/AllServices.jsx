@@ -16,7 +16,6 @@ export default function AllServices(props) {
             <AllServiceGroup group={props.groups[item]} />
           </div>
         ))}
-        {JSON.stringify(props.groups, "", 2)}
       </div>
     </div>
   );

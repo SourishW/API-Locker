@@ -35,15 +35,11 @@ const InitialServiceInfo = (props) => {
       for (let i = 0; i < value; i++) {
         newInfo[i] = {};
       }
-      props.setLicensingInfo((prev) =>
-        Object.keys(prev)
-          .filter((key) => key < value)
-          .reduce((obj, key) => {
-            return Object.assign(obj, {
-              [key]: prev[key],
-            });
-          }, {})
-      );
+      const licenseInfo = new Array(parseInt(value));
+      for (let i = 0; i < value; i++) {
+        licenseInfo[i] = {};
+      }
+      props.setLicensingInfo(licenseInfo);
     }
   };
 

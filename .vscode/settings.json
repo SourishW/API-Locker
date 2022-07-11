@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/ef600194-4381-41b6-9b1b-f89a9cd3c866/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/servicelockerdemo",
+  "appService.deploySubpath": "."
+}

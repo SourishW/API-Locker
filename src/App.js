@@ -8,6 +8,7 @@ import ManageService from "./pages/ManageService";
 import ChangeService from "./pages/ChangeService";
 
 import NewService from "./pages/NewService";
+import { Provider } from "react-redux";
 
 import React, { useState } from "react";
 import {
@@ -39,7 +40,7 @@ function App() {
                           description:
                             "This is a short description of the product",
                           type: "Database",
-                          link: "google.com",
+                          link: "manageservice?name=Video-Search",
                           cycle: "V1",
                           state: "Production",
                         },
@@ -48,7 +49,7 @@ function App() {
                           description:
                             "This is a short description of the Comment Search product. This is a short description of the Comment Search product. This is a short description of the Comment Search product. This is a short description of the Comment Search product",
                           type: "Database",
-                          link: "google.com",
+                          link: "manageservice?name=Comment-Search",
                           cycle: "V3",
                           state: "Build",
                         },
@@ -59,7 +60,7 @@ function App() {
                           description:
                             "This is a short description of the Google Search product. This is a short description of the Google Search product.",
                           type: "Internal API",
-                          link: "google.com",
+                          link: "manageservice?name=Google-Search",
                           cycle: "V2",
                           state: "Test",
                         },
@@ -94,7 +95,19 @@ function App() {
           </Routes>
         </BrowserRouter>
       </AuthenticatedTemplate>
-      <UnauthenticatedTemplate></UnauthenticatedTemplate>
+      <UnauthenticatedTemplate>
+        <h1
+          style={{
+            color: "white",
+            backgroundColor: "orange",
+            borderRadius: "10px",
+            textAlign: "center",
+            padding: "20px",
+          }}
+        >
+          Hello and Welcome to Service Locker! Sign in to get started
+        </h1>
+      </UnauthenticatedTemplate>
     </PageLayout>
   );
 }

@@ -56,16 +56,19 @@ export default function ProfileContent() {
 
   return (
     <>
-      <h5 className="card-title">Welcome {name}</h5>
+      <h1
+        className="card-title"
+        style={{ textAlign: "center", color: "white" }}
+      >
+        Welcome {name}
+      </h1>
       {graphData ? (
         <div>
           <ProfileData graphData={graphData} />
-          {JSON.stringify(driveData, "", 2)}
-          {JSON.stringify(graphData, "", 2)}
         </div>
       ) : (
         <Button variant="secondary" onClick={RequestProfileData}>
-          Request Profile Information
+          My Profile Information
         </Button>
       )}
     </>

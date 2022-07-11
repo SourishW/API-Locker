@@ -90,3 +90,40 @@ export async function getServiceInfoFromDrive(accessToken) {
     .then((response) => response.json())
     .catch((error) => console.log(error));
 }
+
+export async function createCalendarEvents(accessToken, licensingInfo) {
+  if (Object.keys(licensingInfo).length == 0) {
+    return;
+  } else {
+    const licenseNumber = "0";
+    let name = licensingInfo[licenseNumber]["licenseName"];
+    let date = licensingInfo[licenseNumber]["expiryDate"];
+
+    const headers = new Headers();
+    const bearer = `Bearer ${accessToken}`;
+
+    headers.append("Authorization", bearer);
+    headers.append("Content-Type", "application/json");
+
+    const options = {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({
+        subject: "License Reminder for " + name + " license",
+
+        start: {
+          dateTime: date + "T12:00:00",
+          timeZone: "Pacific Standard Time",
+        },
+        end: {
+          dateTime: date + "T14:00:00",
+          timeZone: "Pacific Standard Time",
+        },
+      }),
+    };
+
+    return fetch(graphConfig.uploadFile + ".json:/content", options)
+      .then((response) => response.json())
+      .catch((error) => console.log(error));
+  }
+}

@@ -1,11 +1,17 @@
 import React from "react";
 
+const profileDivStyle = {
+  textAlign: "center",
+  fontSize: "2rem",
+  color: "white",
+};
+
 /**
  * Renders information about the user obtained from Microsoft Graph
  */
 export const ProfileData = (props) => {
   return (
-    <div id="profile-div">
+    <div id="profile-div" style={profileDivStyle}>
       <p>
         <strong>First Name: </strong> {props.graphData.givenName}
       </p>

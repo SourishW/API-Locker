@@ -6,7 +6,7 @@ import Method from "./NewServiceComponents/Method";
 import LicensingInfo from "./NewServiceComponents/LicensingInfo";
 import { useMsal } from "@azure/msal-react";
 import { loginRequest } from "../authConfig";
-import { uploadServiceInfoToDrive } from "../graph";
+import { uploadServiceInfoToDrive, createCalendarEvents } from "../graph";
 import { useSearchParams } from "react-router-dom";
 
 // props should include existing old license
@@ -15,7 +15,9 @@ const ChangeService = (props) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [firstInfo, setFirstInfo] = useState(props.firstInfo);
   const [pages, setPages] = useState(Object.keys(props.licensingInfo));
-  const [licensingInfo, setLicensingInfo] = useState(props.licensingInfo);
+  const [licensingInfo, setLicensingInfo] = useState({
+    0: {},
+  });
   const [needEndpoints, setNeedEndpoints] = useState(true);
   const [endPoints, setEndPoints] = useState({
     connect: Object.keys(props.methodInfo["connect"]).length != 0,
@@ -66,6 +68,28 @@ const ChangeService = (props) => {
           });
         });
     }
+  };
+
+  const creatCalendar = () => {
+    const request = {
+      ...loginRequest,
+      account: accounts[0],
+    };
+
+    instance
+      .acquireTokenSilent(request)
+      .then((response) => {
+        createCalendarEvents(response.accessToken, licensingInfo).then(
+          (response) => alert("Calendar Events Have been created for licenses.")
+        );
+      })
+      .catch((e) => {
+        instance.acquireTokenPopup(request).then((response) => {
+          createCalendarEvents(response.accessToken, licensingInfo).then(
+            (response) => console.log(response)
+          );
+        });
+      });
   };
 
   const resetFormData = () => {};
@@ -121,24 +145,13 @@ const ChangeService = (props) => {
           className="newservice__pagetraversal__button"
           onClick={() => {
             uploadDataToDrive();
+            creatCalendar();
             resetFormData();
           }}
         >
           Submit
         </button>
       </div>
-
-      {JSON.stringify(firstInfo, "", 2)}
-      <br />
-      <br />
-
-      {JSON.stringify(licensingInfo, "", 2)}
-      <br />
-      <br />
-
-      {JSON.stringify(methodInfo, "", 2)}
-      <br />
-      <br />
     </div>
   );
 };

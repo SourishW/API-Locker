@@ -128,17 +128,6 @@ const NewService = () => {
           )
         }
       </div>
-      {JSON.stringify(firstInfo, "", 2)}
-      <br />
-      <br />
-
-      {JSON.stringify(licensingInfo, "", 2)}
-      <br />
-      <br />
-
-      {JSON.stringify(methodInfo, "", 2)}
-      <br />
-      <br />
     </div>
   );
 };
