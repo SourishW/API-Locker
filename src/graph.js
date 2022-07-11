@@ -51,4 +51,25 @@ export async function ensureServiceLockerDirectory(accessToken) {
     .catch((error) => console.log(error));
 }
 
-export async function uploadServiceInfoToDrive(accessToken, dataToSave) {}
+export async function uploadServiceInfoToDrive(accessToken, dataToSave) {
+  const headers = new Headers();
+  const bearer = `Bearer ${accessToken}`;
+
+  headers.append("Authorization", bearer);
+  headers.append("Content-Type", "application/json");
+
+  const options = {
+    method: "PUT",
+    headers: headers,
+    body: JSON.stringify(dataToSave),
+  };
+
+  return fetch(
+    graphConfig.uploadFile +
+      dataToSave["primaryInformation"]["serviceName"].replaceAll(" ", "_") +
+      ".json:/content",
+    options
+  )
+    .then((response) => response.json())
+    .catch((error) => console.log(error));
+}

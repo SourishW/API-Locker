@@ -68,7 +68,7 @@ const InitialServiceInfo = (props) => {
             htmlFor="serviceName"
             className="initialServiceInfo__form__item__label"
           >
-            Service Name:
+            Service Name (Mandatory Field):
           </label>
           <input
             id="serviceName"
