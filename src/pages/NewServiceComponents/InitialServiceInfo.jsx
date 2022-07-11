@@ -59,7 +59,7 @@ const InitialServiceInfo = (props) => {
   return (
     <div className="initialServiceInfo">
       <h1 style={{ textAlign: "center", marginBottom: "30px" }}>
-        Describe your service:
+        Describe your Policy:
       </h1>
 
       <form onSubmit={handleSubmit} className="initialServiceInfo__form">
@@ -68,7 +68,16 @@ const InitialServiceInfo = (props) => {
             htmlFor="serviceName"
             className="initialServiceInfo__form__item__label"
           >
-            Service Name (Mandatory Field):
+            Policy Name (Mandatory Field):
+            <p>
+              The below should be named in the format
+              {" <serviceName>__<version>__<identifier>"}
+              <br />
+              This name uniquely and globablly identifies a policy,
+              <br />
+              If an existing policy exists with the same name, it will override
+              the existing!
+            </p>
           </label>
           <input
             id="serviceName"
@@ -76,7 +85,7 @@ const InitialServiceInfo = (props) => {
             value={profile.serviceName || ""}
             name="serviceName"
             type="text"
-            placeholder="Name of service"
+            placeholder="Globablly distinguishes policies (keep this value unique)"
             onChange={handleChange}
           />
         </div>
@@ -86,7 +95,7 @@ const InitialServiceInfo = (props) => {
             htmlFor="serviceDescription"
             className="initialServiceInfo__form__item__label"
           >
-            Service Description:
+            Policy Description:
           </label>
           <textarea
             id="serviceDescription"

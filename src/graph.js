@@ -73,3 +73,20 @@ export async function uploadServiceInfoToDrive(accessToken, dataToSave) {
     .then((response) => response.json())
     .catch((error) => console.log(error));
 }
+
+export async function getServiceInfoFromDrive(accessToken) {
+  const headers = new Headers();
+  const bearer = `Bearer ${accessToken}`;
+
+  headers.append("Authorization", bearer);
+  headers.append("Content-Type", "application/json");
+
+  const options = {
+    method: "GET",
+    headers: headers,
+  };
+
+  return fetch(graphConfig.uploadFile + ".json:/content", options)
+    .then((response) => response.json())
+    .catch((error) => console.log(error));
+}
